@@ -68,6 +68,7 @@
     <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="butterknife-5.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Analytics" level="project" />
     <orderEntry type="library" exported="" name="androidasync-1.2.4" level="project" />
   </component>
 </module>

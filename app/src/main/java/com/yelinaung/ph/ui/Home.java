@@ -1,17 +1,24 @@
 package com.yelinaung.ph.ui;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -44,6 +52,7 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
   private HuntAdapter huntAdapter;
   private HuntsDao huntsDao;
   private ArrayList<Hunts> huntsList = new ArrayList<Hunts>();
+  private Context mContext;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,7 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
     setContentView(R.layout.activity_my);
 
     this.huntsDao = new HuntsDao(getApplicationContext());
+    this.mContext = getApplicationContext();
 
     ButterKnife.inject(this);
 
@@ -67,7 +77,7 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
     mHuntListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override public void onItemClick(AdapterView<?> parent, View view, final int position,
           long id) {
-        new AlertDialog.Builder(Home.this).setTitle(R.string.go_to)
+        AlertDialog.Builder ab = new AlertDialog.Builder(Home.this).setTitle(R.string.go_to)
             .setItems(R.array.links, new DialogInterface.OnClickListener() {
               @Override public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
@@ -83,9 +93,11 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
                     break;
                 }
               }
-            })
-            .create()
-            .show();
+            });
+        Dialog d = ab.create();
+        d.show();
+
+        showCustomDialog(d);
       }
     });
   }
@@ -224,9 +236,63 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
     }
   }
 
+  @Override
+  public void onStart() {
+    super.onStart();
+    EasyTracker.getInstance(Home.this).activityStart(Home.this);  // Add this method.
+  }
+
   @Override protected void onDestroy() {
     super.onDestroy();
     ButterKnife.reset(this);
+  }
+
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.home, menu);
+    return true;
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+    switch (id) {
+      case R.id.action_about:
+        showAbout();
+        break;
+    }
+    return super.onOptionsItemSelected(item);
+  }
+
+  private void showAbout() {
+    PackageManager pm = mContext.getPackageManager();
+    String packageName = mContext.getPackageName();
+    String versionName;
+    try {
+      assert pm != null;
+      PackageInfo info = pm.getPackageInfo(packageName, 0);
+      versionName = info.versionName;
+    } catch (PackageManager.NameNotFoundException e) {
+      versionName = "";
+    }
+    AlertDialog.Builder b = new AlertDialog.Builder(Home.this).setTitle(R.string.about)
+        .setMessage(new SpannableStringBuilder().append(
+            Html.fromHtml(getString(R.string.about_body, versionName))));
+    Dialog d = b.show();
+    showCustomDialog(d);
+  }
+
+  private void showCustomDialog(Dialog d) {
+    int newCodeViewId =
+        d.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+    View newCodeDivider = d.findViewById(newCodeViewId);
+    newCodeDivider.setBackgroundColor(getResources().getColor(R.color.theme_color));
+    int newCodeTextViewId =
+        d.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+    TextView newCodeTv = (TextView) d.findViewById(newCodeTextViewId);
+    newCodeTv.setTextColor(getResources().getColor(R.color.theme_color));
   }
 }
 

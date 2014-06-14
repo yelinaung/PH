@@ -17,4 +17,23 @@
     <item>Permalink</item>
     <item>Product Url</item>
   </string-array>
+
+  <string name="about">About</string>
+  <string name="about_body">
+    <![CDATA[
+        <b>PH</b><br>
+        Version %s<br><br>
+        (Very) Simple Product Hunt based on Karan\'s awesome API.
+        Source code at <a href="https://github.com/yelinaung/PH"> GitHub </a>.
+        <hr>
+        <br>
+        <br>
+        Open Source Libraries in Use
+        <ul>
+          <li> Butterknife ( https://github.com/JakeWharton/butterknife )</li>
+          <li> Ion ( https://github.com/koush/ion ) </li>
+          <li> ORMlite ( https://github.com/j256/ormlite-core )</li>
+        </ul
+    ]]>
+  </string>
 </resources>
