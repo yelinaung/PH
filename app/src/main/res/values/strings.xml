@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">Product Hunt</string>
+  <string name="action_settings">Settings</string>
+  <string name="title_activity_my">MyActivity</string>
+
+  <string name="dummy_vote">42</string>
+  <string name="dummy_title">Hook - ProductHunt API</string>
+  <string name="dummy_tagline">ProductHunt API for retrieving today\'s hunts</string>
+  <string name="dummy_comments_count">20 comments</string>
+
+</resources>
