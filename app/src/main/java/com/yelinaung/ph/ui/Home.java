@@ -72,8 +72,6 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
 
     //Add your components
 
-    loadData();
-
     mHuntListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override public void onItemClick(AdapterView<?> parent, View view, final int position,
           long id) {
