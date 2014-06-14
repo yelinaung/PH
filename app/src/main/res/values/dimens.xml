@@ -20,8 +20,6 @@
   <dimen name="medium_padding">5dp</dimen>
   <dimen name="vote_text_size">18sp</dimen>
   <dimen name="title_text_size">18sp</dimen>
-
-
   <dimen name="page_margin">@dimen/margin_small</dimen>
 
 </resources>
