@@ -8,5 +8,6 @@
 
   <color name="theme_color">#da552f</color>
   <color name="tag_color">#999999</color>
+  <color name="secondary_color">#999999</color>
 
 </resources>

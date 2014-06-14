@@ -16,27 +16,33 @@
       android:padding="@dimen/large_padding"
       android:layout_gravity="center"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif-condensed"/>
 
   <LinearLayout
       android:orientation="vertical"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:paddingTop="@dimen/large_padding"
+      android:paddingBottom="@dimen/large_padding">
 
     <TextView
         android:id="@+id/title"
         android:text="@string/dummy_title"
         android:textSize="@dimen/title_text_size"
         android:textColor="@android:color/black"
-        android:padding="@dimen/medium_padding"
+        android:paddingLeft="@dimen/medium_padding"
+        android:paddingRight="@dimen/medium_padding"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"/>
 
     <TextView
         android:id="@+id/tag_line"
         android:text="@string/dummy_tagline"
-        android:textColor="@color/tag_color"
-        android:padding="@dimen/medium_padding"
+        android:textColor="@color/secondary_color"
+        android:paddingLeft="@dimen/medium_padding"
+        android:paddingRight="@dimen/medium_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -44,7 +50,9 @@
         android:id="@+id/comment_count"
         android:text="@string/dummy_comments_count"
         android:textColor="@color/theme_color"
-        android:padding="@dimen/medium_padding"
+        android:paddingLeft="@dimen/medium_padding"
+        android:paddingRight="@dimen/medium_padding"
+        android:paddingTop="@dimen/large_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
