@@ -3,6 +3,7 @@ Product Hunt Android App
 
 (Very) Simple [Product Hunt](http://www.producthunt.com) Android apps based on [Karan](https://github.com/karan)'s awesome [API](https://github.com/karan/Hook).
 
+![Home](https://raw.githubusercontent.com/yelinaung/PH/master/Screenshot_2014-06-14-12-41-01_framed.png)
 
 Contributing
 ------------
