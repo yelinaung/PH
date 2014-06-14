@@ -10,4 +10,11 @@
   <string name="dummy_tagline">ProductHunt API for retrieving today\'s hunts</string>
   <string name="dummy_comments_count">20 comments</string>
 
+  <string name="cannot_connect">Can\'t connect. Check your connection.</string>
+  <string name="go_to">Go to</string>
+
+  <string-array name="links">
+    <item>Permalink</item>
+    <item>Product Url</item>
+  </string-array>
 </resources>

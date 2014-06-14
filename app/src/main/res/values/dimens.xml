@@ -24,6 +24,6 @@
   <dimen name="title_text_size">18sp</dimen>
 
 
-  <dimen name="page_margin">@dimen/margin_medium</dimen>
+  <dimen name="page_margin">@dimen/margin_small</dimen>
 
 </resources>

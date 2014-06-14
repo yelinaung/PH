@@ -1,17 +1,39 @@
-package yelinaung.producthunt.model;
+package com.yelinaung.ph.model;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * Created by Ye Lin Aung on 14/06/13.
  */
+
+@DatabaseTable(tableName = "Hunts")
 public class Hunts {
-  private String rank;
-  private String title;
-  private String permalink;
-  private String votes;
+  @DatabaseField(generatedId = true) public int id;
+  @DatabaseField private String rank;
+  @DatabaseField private String title;
+  @DatabaseField private String permalink;
+  @DatabaseField private String votes;
+  @DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
   private User user;
-  private String url;
-  private int comment_count;
-  private String tagline;
+  @DatabaseField private String url;
+  @DatabaseField private int comment_count;
+  @DatabaseField private String tagline;
+
+  public Hunts() {
+  }
+
+  public Hunts(String rank, String title, String permalink, String votes,
+      com.yelinaung.ph.model.User user, String url, int comment_count, String tagline) {
+    this.rank = rank;
+    this.title = title;
+    this.permalink = permalink;
+    this.votes = votes;
+    this.user = user;
+    this.url = url;
+    this.comment_count = comment_count;
+    this.tagline = tagline;
+  }
 
   public String getRank() {
     return rank;

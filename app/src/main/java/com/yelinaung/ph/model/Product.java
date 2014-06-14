@@ -1,4 +1,4 @@
-package yelinaung.producthunt.model;
+package com.yelinaung.ph.model;
 
 import java.util.List;
 
