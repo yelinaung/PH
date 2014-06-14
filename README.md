@@ -1,5 +1,5 @@
-Product Hunt Android App
-========================
+PH
+==
 
 (Very) Simple [Product Hunt](http://www.producthunt.com) Android apps based on [Karan](https://github.com/karan)'s awesome [API](https://github.com/karan/Hook).
 
