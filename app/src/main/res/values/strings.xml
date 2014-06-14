@@ -28,12 +28,12 @@
         <hr>
         <br>
         <br>
-        Open Source Libraries in Use
+        Open Source Libraries in Use <br>
         <ul>
-          <li> Butterknife ( https://github.com/JakeWharton/butterknife )</li>
-          <li> Ion ( https://github.com/koush/ion ) </li>
-          <li> ORMlite ( https://github.com/j256/ormlite-core )</li>
-        </ul
+          <li> * <a href="https://github.com/JakeWharton/butterknife">Butterknife</a><br>
+          <li> * <a href="https://github.com/koush/ion">Ion</a> </li> <br>
+          <li> * <a href="https://github.com/j256/ormlite-core"> ORMlite </a> </li> <br>
+        </ul>
     ]]>
   </string>
 </resources>
