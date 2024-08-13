@@ -212,10 +212,10 @@ public class Home extends ActionBarActivity implements OnRefreshListener {
       holder.mVotePoints.setText(huntList.get(position).getVotes());
 
       String title = huntList.get(position).getTitle();
-      SpannableString content = new SpannableString(title);
-      content.setSpan(new UnderlineSpan(), 0, title.length(), 0);
+//      SpannableString content = new SpannableString(title);
+//      content.setSpan(new UnderlineSpan(), 0, title.length(), 0);
 
-      holder.mTitle.setText(content);
+      holder.mTitle.setText(title);
       holder.mTagLine.setText(huntList.get(position).getTagline());
       holder.mCommentCount.setText(huntList.get(position).getComments() + " comments");
 
